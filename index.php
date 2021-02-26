@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <link rel="stylesheet" href="css/style.css?<?php echo time() ?>">
   <title>Document</title>
 </head>
@@ -17,6 +17,9 @@
               <div class="comb-tab_content">
                 <div class="comb-tab_content-top"></div>
                 <div class="comb-tab_content-bottom"></div>
+                <div class="comb-tab_content-text">
+                  Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Quasi ut dolores, aspernatur tempora ab esse deserunt. Ducimus tempora cum, vel!
+                </div>
               </div>
             </div>
             <div class="comb-tab_right">
@@ -25,6 +28,9 @@
               <div class="comb-tab_content">
                 <div class="comb-tab_content-top"></div>
                 <div class="comb-tab_content-bottom"></div>
+                <div class="comb-tab_content-text">
+                  Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Quasi ut dolores, aspernatur tempora ab esse deserunt. Ducimus tempora cum, vel!
+                </div>
               </div>
             </div>
           </div>
@@ -35,6 +41,9 @@
               <div class="comb-tab_content">
                 <div class="comb-tab_content-top"></div>
                 <div class="comb-tab_content-bottom"></div>
+                <div class="comb-tab_content-text">
+                  Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Quasi ut dolores, aspernatur tempora ab esse deserunt. Ducimus tempora cum, vel!
+                </div>
               </div>
             </div>
             <div class="comb-tab_right">
@@ -43,6 +52,9 @@
               <div class="comb-tab_content">
                 <div class="comb-tab_content-top"></div>
                 <div class="comb-tab_content-bottom"></div>
+                <div class="comb-tab_content-text">
+                  Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Quasi ut dolores, aspernatur tempora ab esse deserunt. Ducimus tempora cum, vel!
+                </div>
               </div>
             </div>
           </div>
