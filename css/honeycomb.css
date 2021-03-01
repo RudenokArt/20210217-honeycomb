@@ -1,9 +1,21 @@
+.our_partners-image{
+  margin-left: 10%;
+  max-width: 80%;
+}
+.our_partners-title{
+  display: flex;
+  margin-top:50px;
+}
+.our_partners-title div{
+  margin:auto;
+  font-size: 20px;
+}
 .comb-container{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding-top:100px;
-  padding-right: 100px;
+  /*padding-left: 10%;*/
 }
 .comb-container *{
   box-sizing: border-box;
@@ -23,9 +35,11 @@
 }
 .comb-tab_left,
 .comb-tab_right{
+  display: block;
   cursor: pointer;
   top:0px;
   position: absolute;
+  color:transparent;
   height: 130px;
   width: 235px;
   border:2px solid rgb(60,80,100);
@@ -60,29 +74,40 @@
   transform:rotate(-30deg);
 }
 .comb-tab_content{
-  top:1px;
+  top:0px;
   left: 0px;
   position: absolute;
   height: 128px;
   width: 231px;
-  color: transparent;
-  background-image: url(../img/foraft-1.jpg);
-  background-size: cover;
+  background-color: white;
+}
+.comb-tab_content-overlay{
+  top:0px;
+  left: 0px;
+  position: absolute;
+  height: 128px;
+  width: 231px;
+  /*background-image: url(../img/foraft-1.jpg);*/
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
 }
 .comb-tab_content-text{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size:15px;
-  padding: 10px;
-  text-align: center;
-  line-height: 1.2em;
   position: absolute;
   top:0;
   left:0;
   height: 100%;
   width: 100%;
   background-color: transparent;
+  display: flex;
+}
+.comb-tab_content-text div{
+  margin:auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:15px;
+  padding: 10px;
+  text-align: center;
+  line-height: 1.2em;
 }
 .comb-tab_content-top{
   position: absolute;
@@ -110,4 +135,8 @@
 .comb-tab_right:hover .comb-tab_content,
 .comb-tab_left:hover .comb-tab_content{
   color: white;
+}
+#invisible-node,
+#image-node{
+  display: none;
 }
