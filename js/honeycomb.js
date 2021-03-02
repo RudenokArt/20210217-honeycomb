@@ -31,19 +31,83 @@ function getImageData () {
   setPostData();
 }
 function setPostData () {
-  console.log(partnersArr);
   var imageNodeArr=document.getElementsByClassName('comb-tab_content-overlay');
   var textNodeArr=document.getElementsByClassName('comb-tab_content-text');
   var linkArr=document.getElementsByClassName('comb-tab');
-  var containerArr=document.getElementsByClassName('comb-container');
-  var counter=0;
-  for (var i = 0; i < partnersArr.length; i++) {
-    textNodeArr[i].children[0].innerText=partnersArr[i].text;
-    imageNodeArr[i].style.backgroundImage='url('+partnersArr[i].image+')';
-    linkArr[i].setAttribute('href', partnersArr[i].link);
-    counter=Math.floor(i/4);
+  for (var i = 0; i <partnersArr.length; i=i+8) {
+    var n=i;
+    var k=i;
+    try {
+      textNodeArr[n].children[0].innerText=partnersArr[k].text;
+      imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
+      linkArr[n].setAttribute('href', partnersArr[k].link);
+    } catch(e) { }
+    n=i+2;
+    k=i+1;
+    try {
+      textNodeArr[n].children[0].innerText=partnersArr[k].text;
+      imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
+      linkArr[n].setAttribute('href', partnersArr[k].link);
+    } catch(e) { }
+    n=i+4;
+    k=i+2;
+    try {
+      textNodeArr[n].children[0].innerText=partnersArr[k].text;
+      imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
+      linkArr[n].setAttribute('href', partnersArr[k].link);
+    } catch(e) { }
+    n=i+6;
+    k=i+3;
+    try {
+      textNodeArr[n].children[0].innerText=partnersArr[k].text;
+      imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
+      linkArr[n].setAttribute('href', partnersArr[k].link);
+    } catch(e) { }
+    n=i+1;
+    k=i+4;
+    try {
+      textNodeArr[n].children[0].innerText=partnersArr[k].text;
+      imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
+      linkArr[n].setAttribute('href', partnersArr[k].link);
+    } catch(e) { }
+    n=i+3;
+    k=i+5;
+    try {
+      textNodeArr[n].children[0].innerText=partnersArr[k].text;
+      imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
+      linkArr[n].setAttribute('href', partnersArr[k].link);
+    } catch(e) { }
+    n=i+5;
+    k=i+6;
+    try {
+      textNodeArr[n].children[0].innerText=partnersArr[k].text;
+      imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
+      linkArr[n].setAttribute('href', partnersArr[k].link);
+    } catch(e) { }
+    n=i+7;
+    k=i+7;
+    try {
+      textNodeArr[n].children[0].innerText=partnersArr[k].text;
+      imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
+      linkArr[n].setAttribute('href', partnersArr[k].link);
+    } catch(e) { }
   }
-   for (var n = counter-1; n < containerArr.length; n++) {
-     containerArr[n].style.display='none'; 
-   }
- }
+  emptyCellsHide();
+}
+function emptyCellsHide () {
+ var tabArr=document.getElementsByClassName('comb-tab');
+ var textArr=document.getElementsByClassName('comb-tab_content-text');
+ for (var i = 0; i < tabArr.length; i++) {
+  if (textArr[i].innerText=='') {tabArr[i].style.display='none';}
+}
+emptyBlocksHide();
+}
+function emptyBlocksHide () {
+  var blockArr=document.getElementsByClassName('comb-block');
+  for (var i = 0; i < blockArr.length; i++) {
+    if (blockArr[i].children[0].style.display=='none'&&
+      blockArr[i].children[1].style.display=='none') {
+      blockArr[i].style.display='none';
+    }
+  }
+}

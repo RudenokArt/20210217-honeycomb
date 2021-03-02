@@ -267,11 +267,11 @@ if( $hidetopbar == '') { ?>
                     let cl = $(this).attr('data-href');
                     console.log(cl);
                     if(cl=='all'){
-                      $('.items-row:first').find('.elementor-col-25').show();
+                      $('.items-row:first').find('.elementor-col-25:hidden').show(400);
                     }
                     else{
-                      $('.items-row:first').find('.elementor-col-25:not(.' + cl + ')').hide(100);
-                      $('.items-row:first').find('.' + cl).show(300);
+                      $('.items-row:first').find('.elementor-col-25:not(.' + cl + ')').hide(400);
+                      $('.items-row:first').find('.' + cl).show(400);
                     }
                   });
                 }

@@ -1,24 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 .our_partners-image-wrapper{
   display: flex;
   justify-content: space-around;
 }
 .our_partners-image{
   overflow: hidden;
-  width: 790px;
+  width: 100%;
   height: 300px;
   overflow: hidden;
 }
 .our_partners-image img{
-  height: 300px;
+  width: 100%;
 }
 .our_partners-title{
   display: flex;
-  margin-top:50px;
+  margin-top:90px;
   margin-bottom: 100px;
 }
 .our_partners-title div{
   margin:auto;
-  font-size: 18px;
+  color: #656565;
+font-family: "Lato", Sans-serif !important;
+font-size: 21px !important;
+font-weight: normal;
 }
 .comb-container{
   display: flex;

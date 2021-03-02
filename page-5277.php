@@ -1,4 +1,4 @@
-<?php get_header() ?>
+<?php get_header(); ?>
 
 <div class="our_partners-image-wrapper">
   <div class="our_partners-image">
@@ -17,7 +17,12 @@
 
 <div id="invisible-node">
   <?php 
-  $partnersQuery=get_posts(['category_name'=>'our_partners','numberposts'=>-1]);
+  $partnersQuery=get_posts([
+    'category_name'=>'our_partners',
+    'numberposts'=>-1,'post_type'=>'page',
+    'orderby'=>'date',
+    'order'=>'DESC'
+  ]);
   $partnersArr='';
   for ($i=0; $i < sizeof($partnersQuery); $i++) { 
     $partnersArr=$partnersArr.htmlentities($partnersQuery[$i]->post_excerpt).'|' ;
@@ -84,5 +89,7 @@ for ($n=0; $n < 250 ; $n++) {   ?>
 
         <script src="<?php echo get_template_directory_uri() ?>/js/honeycomb.js"></script>
 
-        <?php get_footer() ?>
+
+
+<?php get_footer(); ?>
 

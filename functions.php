@@ -38,6 +38,10 @@ if ( ! function_exists( 'it_solutions_setup' ) ) :
 
  */
 
+ 
+add_filter('request', 'true_expanded_request_category');
+
+
 function it_solutions_setup() {
 
 	load_theme_textdomain( 'it-solutions', get_template_directory() . '/languages' );
@@ -591,4 +595,23 @@ function it_solutions_register_required_plugins() {
 
 }
 
-require_once get_template_directory().'/widgets/class-wc-widget-product-catandprod.php';
+
+require_once get_template_directory().'/widgets/class-wc-widget-product-catandprod.php';
+
+
+
+
+
+
+function true_apply_categories_for_pages(){
+  add_meta_box( 'categorydiv', 'Категории', 'post_categories_meta_box', 'page', 'side', 'normal'); // добавляем метабокс категорий для страниц
+  register_taxonomy_for_object_type('category', 'page'); // регистрируем рубрики для страниц
+}
+// обязательно вешаем на admin_init
+add_action('admin_init','true_apply_categories_for_pages');
+ 
+function true_expanded_request_category($q) {
+  if (isset($q['category_name'])) // если в запросе присутствует параметр рубрики
+    $q['post_type'] = array('post', 'page'); // то, помимо записей, выводим также и страницы
+  return $q;
+}
