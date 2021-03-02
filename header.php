@@ -178,5 +178,107 @@ if( $hidetopbar == '') { ?>
         <div class="clear"></div> 
 
   </div> <!-- container -->
+  <?
+  $pf = '';
+  if(strpos(' '.$_SERVER['REQUEST_URI'],'/alarita/')){
+    $pf = '/alarita';
+  }
+
+  $file = $_SERVER['DOCUMENT_ROOT'].$pf.'/sections.ini';
+  $sections_config = parse_ini_file( $file, true );
+  $path = explode('/',$_SERVER['REQUEST_URI']);  
+  $i = 1;
+  if($pf != ''){
+    $i = 2;
+  }
+  ?>
+  <?if(isset($path[$i]) && $path[$i]!='' && isset($sections_config[$path[$i]])):?>
+    <?if(count($sections_config[$path[$i]])):?>
+    <div class="wrap-filter">
+      <div class="inner-filter">
+      <div class="section-filter">
+      <div class="current"><a href="javascript:void(0)"><span>All</span><i>▾</i></a></div>
+      <ul>
+        <li><a href="javascript:void(0)" data-href="all">All</a></li>
+        <?foreach ($sections_config[$path[$i]] as $key => $value):?>
+          <li><a href="javascript:void(0)" data-href="<?=$key;?>"><?=$value;?></a></li>
+        <?endforeach;?>
+      </ul>
+      </div>
+      </div>
+      </div>
+      <script>
+        jQuery(document).ready(function($){
+            if($('.items-row').length){
+                console.log($('.items-row').length);
+                $('.items-row').hide();
+                $('.items-row').each(function(index,elem){            
+                  if(index!=0){
+                    $(this).find('.elementor-col-25').each(function(){
+                      $('.items-row:first').find('.elementor-row').append($(this).clone());
+                    });
+                  }
+                });
+                $('.items-row:first').show();
+                if($('.section-filter').length){
+                  $('.items-row:first').prepend($('.wrap-filter').html());
+                  $('.wrap-filter').remove();
+                  //actions
+                  var a = $('.section-filter .current a');
+                  var ul = $('.section-filter ul');
+                  var a2 = $('.section-filter ul a');
+                  a.click(function(){
+                    if(!ul.hasClass('active')){
+                      ul.addClass('active');
+                      ul.slideDown(100);                      
+                    }
+                    else{
+                      ul.removeClass('active');
+                      ul.slideUp(100);   
+                    }
+                  });
+                  if($(window).width()>=768){
+                    $('.section-filter').hover(function(){
+                      //if(ul.hasClass('active')){
+                        ul.addClass('active');
+                        ul.slideDown(100);                      
+                      //}
+                      },
+                      function(){
+                        ul.removeClass('active');
+                        ul.slideUp(100);                      
+                      }
+                    );
+                  }
+                  $(document).mouseup(function (e){
+                    var div = $(".section-filter");
+                    if (!div.is(e.target)
+                        && div.has(e.target).length === 0) {
+                          if(ul.hasClass('active')){
+                            ul.removeClass('active');
+                            ul.slideUp(100);
+                          }
+                    }
+                  });
+                  a2.click(function(){
+                    a.find('span').text($(this).text());
+                    ul.removeClass('active');
+                    ul.slideUp(100);
+                    let cl = $(this).attr('data-href');
+                    console.log(cl);
+                    if(cl=='all'){
+                      $('.items-row:first').find('.elementor-col-25').show();
+                    }
+                    else{
+                      $('.items-row:first').find('.elementor-col-25:not(.' + cl + ')').hide(100);
+                      $('.items-row:first').find('.' + cl).show(300);
+                    }
+                  });
+                }
+            }
+        });  
+        </script>      
+    <?endif;?>
+  <?endif;?>
 
 </div><!--.header -->

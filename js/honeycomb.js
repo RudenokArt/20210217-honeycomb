@@ -31,18 +31,19 @@ function getImageData () {
   setPostData();
 }
 function setPostData () {
+  console.log(partnersArr);
   var imageNodeArr=document.getElementsByClassName('comb-tab_content-overlay');
-   var textNodeArr=document.getElementsByClassName('comb-tab_content-text');
-   var linkArr=document.getElementsByClassName('comb-tab');
-   var counter=0;
-   for (var i = 0; i < partnersArr.length; i++) {
+  var textNodeArr=document.getElementsByClassName('comb-tab_content-text');
+  var linkArr=document.getElementsByClassName('comb-tab');
+  var containerArr=document.getElementsByClassName('comb-container');
+  var counter=0;
+  for (var i = 0; i < partnersArr.length; i++) {
     textNodeArr[i].children[0].innerText=partnersArr[i].text;
     imageNodeArr[i].style.backgroundImage='url('+partnersArr[i].image+')';
     linkArr[i].setAttribute('href', partnersArr[i].link);
-    counter=i;
+    counter=Math.floor(i/4);
+  }
+   for (var n = counter-1; n < containerArr.length; n++) {
+     containerArr[n].style.display='none'; 
    }
-   for (var n = counter+1; n < linkArr.length; n++) {
-     linkArr[n].style.display='none';
-   }
-
-}
+ }
