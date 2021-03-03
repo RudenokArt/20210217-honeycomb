@@ -220,6 +220,9 @@ if( $hidetopbar == '') { ?>
                   }
                 });
                 $('.items-row:first').show();
+                <?if($path[$i]=='civil-construction'):?>
+                  $('.items-row:first').css({'min-height':$('.items-row:first').height()});
+                <?endif;?>
                 if($('.section-filter').length){
                   $('.items-row:first').prepend($('.wrap-filter').html());
                   $('.wrap-filter').remove();

@@ -85,11 +85,85 @@ for ($n=0; $n < 250 ; $n++) {   ?>
         </div>
         </div><?}?>
         </div><?}?>
-        <div class="comb-footer"></div>
 
         <script src="<?php echo get_template_directory_uri() ?>/js/honeycomb.js"></script>
 
+        <?php $menuitems=wp_get_nav_menu_items(2); ?>
+        <div class="comb-footer">
+          <div class="comb-footer_item">
+            <img src="<?php echo get_template_directory_uri() ?>/img/logo.png" alt=" ">
+          </div>
+
+          <div class="comb-footer_item">
+            <div class="comb-footer_item-title">
+              ABOUT
+            </div>
+            <div>
+              <a href="<?php echo get_template_directory_uri(); ?>">
+               <span>&#187</span> HOME
+             </a>
+           </div>
+           <div>
+            <a href="<?php echo $menuitems[0]->url; ?>">
+              <span>&#187</span> <?php echo $menuitems[0]->title; ?>
+            </a>
+          </div>
+          <div>
+            <a href="<?php echo $menuitems[1]->url; ?>">
+              <span>&#187</span> <?php echo $menuitems[1]->title; ?>
+            </a>
+          </div>
+        </div>
+
+        <div class="comb-footer_item">
+          <div class="comb-footer_item-title">
+            QUICK LINKS
+          </div>
+          <div>
+            <a href="<?php echo $menuitems[6]->url; ?>">
+              <span>&#187</span> <?php echo $menuitems[6]->title; ?>
+            </a>
+          </div>
+          <div>
+            <a href="<?php echo $menuitems[7]->url; ?>">
+              <span>&#187</span> <?php echo $menuitems[7]->title; ?>
+            </a>
+          </div>
+          <div>
+            <a href="<?php echo $menuitems[8]->url; ?>">
+              <span>&#187</span> <?php echo $menuitems[8]->title; ?>
+            </a>
+          </div>
+        </div>
+
+        <div class="comb-footer_item">
+          <div class="comb-footer_item-title">
+            QUICK LINKS
+          </div>
+          <div>
+            <a href="<?php echo $menuitems[2]->url; ?>">
+              <span>&#187</span> <?php echo $menuitems[2]->title; ?>
+            </a>
+          </div>
+          <div>
+            <a href="<?php echo $menuitems[3]->url; ?>">
+              <span>&#187</span> <?php echo $menuitems[3]->title; ?>
+            </a>
+          </div>
+          <div>
+            <a href="<?php echo $menuitems[4]->url; ?>">
+              <span>&#187</span> <?php echo $menuitems[4]->title; ?>
+            </a>
+          </div>
+          <div>
+            <a href="<?php echo $menuitems[5]->url; ?>">
+              <span>&#187</span> <?php echo $menuitems[5]->title; ?>
+            </a>
+          </div>
+        </div>
+
+      </div>
 
 
-<?php get_footer(); ?>
+      <?php get_footer(); ?>
 
