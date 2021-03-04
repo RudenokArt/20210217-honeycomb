@@ -317,7 +317,7 @@ function it_solutions_font_url(){
   add_theme_support( 'post-thumbnails' );
 
 function it_solutions_scripts() {
-  wp_enqueue_style('honeycomb',get_template_directory_uri()."/css/honeycomb.css");
+  wp_enqueue_style('honeycomb',get_template_directory_uri().'/css/honeycomb.css?v7');
 
 	wp_enqueue_style('it-solutions-font', it_solutions_font_url(), array());
 
@@ -614,4 +614,5 @@ function true_expanded_request_category($q) {
   if (isset($q['category_name'])) // если в запросе присутствует параметр рубрики
     $q['post_type'] = array('post', 'page'); // то, помимо записей, выводим также и страницы
   return $q;
-}
+}
+

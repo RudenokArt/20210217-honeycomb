@@ -48,51 +48,73 @@ function setPostData () {
       textNodeArr[n].children[0].innerText=partnersArr[k].text;
       imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
       linkArr[n].setAttribute('href', partnersArr[k].link);
-    } catch(e) { }
+    } catch(e) {
+      textNodeArr[n].children[0].innerText='this place can be yours';
+      textNodeArr[n+2].children[0].innerText='this place can be yours';
+      textNodeArr[n+4].children[0].innerText='this place can be yours';
+    }
     n=i+4;
     k=i+2;
     try {
       textNodeArr[n].children[0].innerText=partnersArr[k].text;
       imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
-      linkArr[n].setAttribute('href', partnersArr[k].link);
-    } catch(e) { }
+      linkArr[n].setAttribute('href', partnersArr[k].link); 
+    } catch(e) {}
     n=i+6;
     k=i+3;
     try {
       textNodeArr[n].children[0].innerText=partnersArr[k].text;
       imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
       linkArr[n].setAttribute('href', partnersArr[k].link);
-    } catch(e) { }
+    } catch(e) {
+      textNodeArr[n].children[0].innerText='this place can be yours';
+    }
     n=i+1;
     k=i+4;
     try {
       textNodeArr[n].children[0].innerText=partnersArr[k].text;
       imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
       linkArr[n].setAttribute('href', partnersArr[k].link);
-    } catch(e) { }
+    } catch(e) {}
     n=i+3;
     k=i+5;
     try {
       textNodeArr[n].children[0].innerText=partnersArr[k].text;
       imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
       linkArr[n].setAttribute('href', partnersArr[k].link);
-    } catch(e) { }
-    n=i+5;
-    k=i+6;
-    try {
-      textNodeArr[n].children[0].innerText=partnersArr[k].text;
-      imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
-      linkArr[n].setAttribute('href', partnersArr[k].link);
-    } catch(e) { }
-    n=i+7;
-    k=i+7;
-    try {
-      textNodeArr[n].children[0].innerText=partnersArr[k].text;
-      imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
-      linkArr[n].setAttribute('href', partnersArr[k].link);
-    } catch(e) { }
+    } catch(e) {
+      if (textNodeArr[i+6].children[0].innerText!='this place can be yours') {
+       textNodeArr[n].children[0].innerText='this place can be yours';
+       textNodeArr[n+2].children[0].innerText='this place can be yours';
+       textNodeArr[n+4].children[0].innerText='this place can be yours';
+     }
+     
+   }
+   n=i+5;
+   k=i+6;
+   try {
+    textNodeArr[n].children[0].innerText=partnersArr[k].text;
+    imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
+    linkArr[n].setAttribute('href', partnersArr[k].link);
+  } catch(e) {
+    if (textNodeArr[i+6].children[0].innerText!='this place can be yours') {
+       textNodeArr[n].children[0].innerText='this place can be yours';
+       textNodeArr[n+2].children[0].innerText='this place can be yours';
+     }
   }
-  emptyCellsHide();
+  n=i+7;
+  k=i+7;
+  try {
+    textNodeArr[n].children[0].innerText=partnersArr[k].text;
+    imageNodeArr[n].style.backgroundImage='url('+partnersArr[k].image+')';
+    linkArr[n].setAttribute('href', partnersArr[k].link);
+  } catch(e) {
+    if (textNodeArr[i+6].children[0].innerText!='this place can be yours') {
+       textNodeArr[n].children[0].innerText='this place can be yours';
+     }
+  }
+}
+emptyCellsHide();
 }
 function emptyCellsHide () {
  var tabArr=document.getElementsByClassName('comb-tab');
@@ -108,6 +130,6 @@ function emptyBlocksHide () {
     if (blockArr[i].children[0].style.display=='none'&&
       blockArr[i].children[1].style.display=='none') {
       blockArr[i].style.display='none';
-    }
   }
+}
 }
